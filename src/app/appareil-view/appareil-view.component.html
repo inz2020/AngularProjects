@@ -1,0 +1,21 @@
+<div class="col-xl-12">
+  <h2>Mes appareils</h2>
+  <!-- Il est possible d'utiliser plusieurs pipes (Exemples: date, uppercas, asyn) pour un seul element du DOM, ais l'ordre des pipes est très important -->
+  <p>Mise à jour : {{lastUpdate | async | date: 'short' | uppercase}}</p>
+  <ul class="list-group">
+
+    <app-appareil *ngFor="let appareil of appareils; let i=index"
+                  [indexOfAppareil]="i"
+                  [appareilName]="appareil.name"
+                  [appareilStatus]="appareil.status"
+                  [id]="appareil.id">
+
+    </app-appareil>
+
+  </ul>
+  <button class="btn btn-success" (click)="onAllumer()">Tout allumer</button>
+  <button class="btn btn-danger" (click)="onEteindre()">Tout éteindre</button>
+  <button class="btn btn-success" (click)="onSave()">Sauvegarder</button>
+  <button class="btn btn-primary" (click)="onFetch()">Charger</button>
+
+</div>
